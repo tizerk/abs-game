@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "pitchVideo": "/videos/pitch1.mp4",
+    "absVideo": "/videos/abs1.mp4",
+    "callOnField": "Strike",
+    "correctDecision": "Don't Challenge",
+    "actualOutcome": "Strike"
+  },
+  {
+    "id": 2,
+    "pitchVideo": "/videos/pitch2.mp4",
+    "absVideo": "/videos/abs2.mp4",
+    "callOnField": "Ball",
+    "correctDecision": "Challenge",
+    "actualOutcome": "Strike"
+  }
+]
