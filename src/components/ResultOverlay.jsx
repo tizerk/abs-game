@@ -1,7 +1,7 @@
-export default function ResultOverlay({ isCorrect, actualOutcome, score, onNext, onRestart }) {
+export default function ResultOverlay({ isCorrect, actualOutcome, score, onNext, onRestart, onReplay }) {
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-6 animate-fade-in rounded-3xl">
-      <div className="max-w-sm w-full bg-slate-900 rounded-[2rem] p-10 shadow-2xl border border-slate-800 text-center transform transition-all scale-100">
+    <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-4 md:p-6 animate-fade-in rounded-3xl">
+      <div className="max-w-sm w-full bg-slate-900 rounded-3xl md:rounded-[2rem] p-6 md:p-10 shadow-2xl border border-slate-800 text-center transform transition-all scale-100">
         
         <div className={`w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 shadow-lg ${isCorrect ? 'bg-green-500/20 text-green-500 shadow-green-900/20' : 'bg-red-500/20 text-red-500 shadow-red-900/20'}`}>
           {isCorrect ? (
@@ -33,18 +33,28 @@ export default function ResultOverlay({ isCorrect, actualOutcome, score, onNext,
         {isCorrect ? (
           <button 
             onClick={onNext}
-            className="w-full py-4 text-xl font-bold bg-white hover:bg-slate-200 text-slate-950 rounded-2xl shadow-lg transition-all active:scale-95"
+            className="cursor-pointer w-full mb-4 py-4 text-xl font-bold bg-white hover:bg-slate-200 text-slate-950 rounded-2xl shadow-lg transition-all active:scale-95"
           >
             Next Pitch
           </button>
         ) : (
           <button 
             onClick={onRestart}
-            className="w-full py-4 text-xl font-bold bg-white hover:bg-slate-200 text-slate-950 rounded-2xl shadow-lg transition-all active:scale-95"
+            className="cursor-pointer w-full mb-4 py-4 text-xl font-bold bg-white hover:bg-slate-200 text-slate-950 rounded-2xl shadow-lg transition-all active:scale-95"
           >
             Play Again
           </button>
         )}
+
+        <button
+          onClick={onReplay}
+          className="cursor-pointer w-full py-3 text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 active:scale-95"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          Replay ABS
+        </button>
       </div>
     </div>
   );
